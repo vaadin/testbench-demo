@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample.pageobjectexample.pageobjects;
 
+import com.vaadin.testbenchexample.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -55,7 +56,7 @@ public class CalculatorPageObject extends TestBenchTestCase {
      * Opens the URL where the calculator resides.
      */
     public void open() {
-        getDriver().get("http://localhost:8080/testbenchexample/?restartApplication");
+        getDriver().get(TestBase.baseUrl + "?restartApplication");
     }
 
     /**
