@@ -4,7 +4,6 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
-import java.util.Stack;
 
 import com.vaadin.ui.Alignment;
 import com.vaadin.ui.Button;
@@ -12,6 +11,7 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
 import com.vaadin.ui.GridLayout;
 import com.vaadin.ui.TextField;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * The Keypad object provides a calculator display and keypad, and makes up the
@@ -43,6 +43,9 @@ public class Keypad extends GridLayout {
         display.setSizeFull();
         display.setId("display");
         display.setValue("0.0");
+        display.addStyleName(ValoTheme.TEXTFIELD_ALIGN_RIGHT);
+        // The operands can only be entered via the key pad
+        display.setReadOnly(true);
 
         // Add the textfield to our keypad, define it so it takes up the top
         // four slots (i.e. the entire top row)
@@ -209,7 +212,9 @@ public class Keypad extends GridLayout {
             double newValue = calculate(requestedOperation);
 
             // Update the result label with the new value
+            display.setReadOnly(false);
             display.setValue("" + newValue);
+            display.setReadOnly(true);
         }
     };
 

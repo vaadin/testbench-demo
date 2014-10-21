@@ -12,6 +12,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * Instances of this class are used to store activity information from
@@ -31,6 +32,7 @@ public class Log extends VerticalLayout implements CalculatorLogger {
 
         public CommentWindow() {
             super("Add comment");
+            setResizable(false);
 
             // Create a new textfield, where the user can enter their comment
             commentField = new TextField();
@@ -42,6 +44,7 @@ public class Log extends VerticalLayout implements CalculatorLogger {
             // Add a tooltip to button
             okButton.setDescription("Clicking this button will add a comment row to log.");
             okButton.setWidth("100%");
+            okButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
             okButton.addClickListener(new ClickListener() {
                 @Override
                 public void buttonClick(ClickEvent event) {
@@ -87,8 +90,8 @@ public class Log extends VerticalLayout implements CalculatorLogger {
             // side by side
             HorizontalLayout buttonContainer = new HorizontalLayout();
             buttonContainer.setSpacing(true);
-            buttonContainer.addComponent(cancelButton);
             buttonContainer.addComponent(okButton);
+            buttonContainer.addComponent(cancelButton);
             buttonContainer.setWidth("100%");
 
             // Create a vertical layout to hold the input field above the OK and

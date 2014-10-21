@@ -3,9 +3,11 @@ package com.vaadin.testbenchexample;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.Title;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.ui.Alignment;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Panel;
 import com.vaadin.ui.UI;
+import com.vaadin.ui.VerticalLayout;
 
 @Theme("valo")
 @Title("Calculator example")
@@ -42,11 +44,18 @@ public class CalcUI extends UI {
         hlayout.addComponent(log);
         hlayout.setSizeUndefined();
 
-        // Add the horizontal layout to our panel to define the application
-        // content, and set the panel to be our UI content to display our app.
+        // Add the horizontal layout to our panel to define the application.
         applicationPanel.setContent(hlayout);
-        setContent(applicationPanel);
 
+        // Add the app panel to a container in order to center it.
+        VerticalLayout container = new VerticalLayout();
+        container.setSizeFull();
+        container.addComponent(applicationPanel);
+        container.setComponentAlignment(applicationPanel,
+                Alignment.MIDDLE_CENTER);
+        // Set the container containing the app panel to be our UI content
+        // to display our app.
+        setContent(container);
     }
 
 }
