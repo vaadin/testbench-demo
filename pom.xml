@@ -12,7 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>7.3.1</vaadin.version>
         <vaadin.plugin.version>7.3.1</vaadin.plugin.version>
-        <vaadin.testbench.version>4.0.0.alpha3</vaadin.testbench.version>
+        <vaadin.testbench.version>RELEASE</vaadin.testbench.version>
     </properties>
     <repositories>
         <repository>
