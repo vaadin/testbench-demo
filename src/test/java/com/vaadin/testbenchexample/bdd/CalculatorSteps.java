@@ -1,6 +1,7 @@
 package com.vaadin.testbenchexample.bdd;
 
 import com.vaadin.testbench.TestBench;
+import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalculatorPageObject;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
@@ -19,7 +20,7 @@ import static org.junit.Assert.*;
  *
  * See http://jbehave.org for details.
  */
-public class CalculatorSteps {
+public class CalculatorSteps extends TestBenchTestCase {
 
     private WebDriver driver;
     private CalculatorPageObject calculator;

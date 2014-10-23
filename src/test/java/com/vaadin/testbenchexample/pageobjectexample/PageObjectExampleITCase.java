@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.vaadin.testbench.TestBenchTestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ import com.vaadin.testbenchexample.pageobjectexample.pageobjects.LogPageObject;
 /**
  * A simple test case using page objects.
  */
-public class PageObjectExampleITCase {
+public class PageObjectExampleITCase extends TestBenchTestCase {
 
     public static final String COMMENT = "That was a simple calculation";
     private CalculatorPageObject calculator;
