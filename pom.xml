@@ -89,7 +89,7 @@
                 </executions>
             </plugin>
 
-            <!-- The Surefire plugin will run our *ITCase tests in the integration-test 
+            <!-- The Failsafe plugin will run our *ITCase tests in the integration-test 
                 phase and do the reporting in the verify phase -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
