@@ -78,3 +78,63 @@ Screenshot comparison in the example project
 ---------------------------------------------
 The screenshot comparison example tests are disabled by default. See the "Screenshot\_Comparison\_Tests.pdf"
 document for instructions on how to enable them and, if necessary, update the reference images.
+
+Sample code classes explained
+------------------------------
+The source code for the application to be tested, a desktop calculator
+application, is given in the `src/main/java` subfolder.
+
+The TestBench tests for the application are located under the
+`src/test/java` subfolder, in the
+`com/vaadin/testbenchexample` package subfolder. They are as follows:
+
+#####[SimpleCalculatorITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/SimpleCalculatorITCase.java)
+Demonstrates the basic use of WebDriver. Interacts with the buttons in the user
+interface by clicking them and checks the resulting value. Uses the ElementQuery
+API to access the elements.
+
+#####[LoopingCalculatorITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/LoopingCalculatorITCase.java)
+Otherwise as the simple example, but shows how to use looping to produce
+programmatic repetition to create a complex use case.
+
+#####[ScreenshotITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/ScreenshotITCase.java)
+Shows how to compare screenshots, as described in
+[Taking and Comparing Screenshots](https://vaadin.com/docs/-/part/testbench/testbench-screenshots.html). Some of the test cases include random input, so
+they require masked screenshot comparison to mask the random areas out.
+
+The example is ignored by default with an `@Ignore` annotation,
+because the included images were taken with a specific browser on a specific
+platform, so if you use another environment, they will fail. If you enable the
+test, you will need to run the tests, copy the error images to the reference
+screenshot folder, and mask out the areas with the alpha channel. Please see the
+`example/Screenshot_Comparison_Tests.pdf` for details about how to
+enable the example and how to create the masked reference images.
+
+#####[SelectorExamplesITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/SelectorExamplesITCase.java)
+This example shows how to find elements in different ways; by using the
+high-level ElementQuery API as well as low-level `By.xpath()`
+selectors.
+
+#####[VerifyExecutionTimeITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/VerifyExecutionTimeITCase.java)
+Shows how to time the execution of a test case and how to report it.
+
+#####[AdvancedCommandsITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/AdvancedCommandsITCase.java)
+Demonstrates how to test context menus and tooltips (see
+[Special Testing Topics](https://vaadin.com/docs/-/part/testbench/testbench-special.html)). It also shows how to send keypresses to a component and how to read values of table cells.
+
+#####[pageobjectexample/PageObjectExampleITCase.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/pageobjectexample/PageObjectExampleITCase.java)
+Shows how to create maintanable tests using the __Page Object Pattern__ that
+separates the low-level page structure from the business logic, as described in
+[Creating
+Maintainable Tests](https://vaadin.com/docs/-/part/testbench/testbench-maintainable.html). The page object classes that handle low-level interaction
+with the application views are in the `pageobjects` subpackage.
+
+#####[bdd/CalculatorSteps.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/CalculatorSteps.java) and [bdd/SimpleCalculation.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/SimpleCalculation.java)
+Shows how to develop tests following the __behaviour-driven development__ (BDD)
+model, by using the [JBehave framework](http://jbehave.org).
+`SimpleCalculation.java` defines a JUnit-based user story with one
+scenario, which is defined in `CalculatorSteps.java`. The scenario
+reuses the page objects defined in the page object example (see above) for
+low-level application view access and control. The example is described in
+[Behaviour-Driven
+Development](https://vaadin.com/docs/-/part/testbench/testbench-bdd.html).
