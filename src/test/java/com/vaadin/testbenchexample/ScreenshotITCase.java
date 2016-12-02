@@ -115,8 +115,6 @@ public class ScreenshotITCase extends TestBase {
         addRandomValues();
         WebElement display = $(TextFieldElement.class).first();
 
-        // Clear and calculate 1 + 2
-        $(ButtonElement.class).caption("C").first().click();
         calculateOnePlusTwo();
         assertEquals("3.0", display.getAttribute("value"));
 
