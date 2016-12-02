@@ -10,9 +10,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <vaadin.version>7.4.8</vaadin.version>
-        <vaadin.plugin.version>7.4.8</vaadin.plugin.version>
-        <vaadin.testbench.version>4.0.3</vaadin.testbench.version>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <vaadin.version>7.7.5</vaadin.version>
+        <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+        <vaadin.testbench.version>4.1.0</vaadin.testbench.version>
     </properties>
     <repositories>
         <repository>
@@ -94,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.12</version>
+                <version>2.19.1</version>
                 <executions>
                     <execution>
                         <goals>
@@ -149,6 +150,12 @@
             <version>${vaadin.testbench.version}</version>
             <scope>test</scope>
         </dependency>
+	<dependency>
+	    <groupId>com.vaadin</groupId>
+	    <artifactId>vaadin-testbench-api</artifactId>
+	    <version>${vaadin.version}</version>
+	    <scope>test</scope>
+	</dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
