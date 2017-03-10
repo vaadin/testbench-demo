@@ -1,17 +1,18 @@
 Running the maven example
 =========================
 
-This is a simple demo project that uses Vaadin TestBench. The project produces 
-a standard WAR file containing a simple calculator application written with Vaadin. 
-During the build phase the artifact is tested using Vaadin TestBench. 
+This project is a comprehensive collection of samples on how to use Vaadin TestBench.
+If you are looking for a getting started type tutorial,
+go to https://github.com/vaadin/testbench-tutorial.
 
-The project is built using Maven. A similar setup can be done using other build
-systems as well. The maven project can easily be imported into any IDE supporting 
-Maven or used via the command line interface. Maven can be downlaoded from:
-http://maven.apache.org
+The project is built using Maven. A similar setup can be done using other build systems as well.
+The maven project can easily be imported into any IDE supporting
+Maven or used via the command line interface. Maven can be downloaded from:
+http://maven.apache.org.
 
+The project produces a standard WAR file containing a simple calculator application written with Vaadin.
 During the build process TestBench tests are automatically run against the final
-war file using a Jetty server. Java classes (JUnit tests in this project) ending 
+war file using a Jetty server. Java classes (JUnit tests in this project) ending
 in "ITCase" are considered integration tests. The tests can be run from the
 command line by issuing the following command:
 
@@ -29,7 +30,7 @@ About the maven example project
 
 How the project was created
 ---------------------------
-The project is based on the vaadin-archetype-application archetype and originally 
+The project is based on the vaadin-archetype-application archetype and originally
 created like this:
 
 	mvn archetype:generate \
@@ -41,7 +42,7 @@ created like this:
 	-Dversion=1.0 \
 	-Dpackaging=war
 
-After the project was generated, the pom.xml was edited and the following 
+After the project was generated, the pom.xml was edited and the following
 dependencies were added:
 
 	<dependency>
@@ -72,9 +73,9 @@ And optionally for BDD with JBehave:
         <scope>test</scope>
     </dependency>
 
-Additionally jetty-maven-plugin is used to automatically deploy the war to a Jetty server 
-during the integration-test phase and maven-failsafe-plugin is configured to run tests 
-named using the *ITCase convention as well as all BDD tests in the com.vaadin.testbenchexample.bdd
+Additionally jetty-maven-plugin is used to automatically deploy the war to a Jetty server
+during the integration-test phase and maven-failsafe-plugin is configured to run tests
+named using the \*ITCase convention as well as all BDD tests in the com.vaadin.testbenchexample.bdd
 package from the src/test/java directory. Check their setup in the pom.xml file.
 
 That's it.
