@@ -1,13 +1,15 @@
 package com.vaadin.testbenchexample;
 
+import java.util.ArrayList;
+
+import com.vaadin.data.provider.ListDataProvider;
 import com.vaadin.event.ShortcutAction.KeyCode;
 import com.vaadin.event.ShortcutListener;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalLayout;
-import com.vaadin.ui.Table;
-import com.vaadin.ui.Table.ColumnHeaderMode;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
@@ -16,12 +18,14 @@ import com.vaadin.ui.themes.ValoTheme;
 
 /**
  * Instances of this class are used to store activity information from
- * {@link Keypad} and displayed in a {@link Table} in the application. This
+ * {@link Keypad} and displayed in a {@link Grid} in the application. This
  * class implements {@link CalculatorLogger}.
  */
 @SuppressWarnings("serial")
 public class Log extends VerticalLayout implements CalculatorLogger {
 
+    private final ArrayList<String> gridItems = new ArrayList();
+    ListDataProvider<String> dataProvider = new ListDataProvider<String>(gridItems);
     /**
      * Nested class CommentWindow is used to get user comments to be displayed
      * among the actual activity log.
@@ -45,12 +49,9 @@ public class Log extends VerticalLayout implements CalculatorLogger {
             okButton.setDescription("Clicking this button will add a comment row to log.");
             okButton.setWidth("100%");
             okButton.addStyleName(ValoTheme.BUTTON_PRIMARY);
-            okButton.addClickListener(new ClickListener() {
-                @Override
-                public void buttonClick(ClickEvent event) {
+            okButton.addClickListener(e ->  {
                     log("[ " + commentField.getValue() + " ]");
                     close();
-                }
             });
 
             // Create a button that closes the window, discarding the contents
@@ -131,39 +132,36 @@ public class Log extends VerticalLayout implements CalculatorLogger {
 
     }
 
-    private Table table;
+    private Grid<String> grid;
     private Button addCommentButton;
     private CommentWindow commentWindow;
     private int line = 0;
 
     public Log() {
-        table = new Table();
-        table.setSizeFull();
+        grid = new Grid();
+        grid.addColumn(String::toString).setCaption("Name");
+        grid.setSizeFull();
 
         setWidth("400px");
         setHeight("100%");
+        grid.removeHeaderRow(grid.getHeaderRow(0));
+        grid.setDataProvider(dataProvider);
+        addComponent(grid);
 
-        table.setColumnHeaderMode(ColumnHeaderMode.HIDDEN);
-        table.addContainerProperty("Operation", String.class, "");
-
-        addComponent(table);
         commentWindow = new CommentWindow();
 
         addCommentButton = new Button("Add Comment");
         addCommentButton.setWidth("100%");
 
-        addCommentButton.addClickListener(new ClickListener() {
-            @Override
-            public void buttonClick(ClickEvent event) {
-                UI.getCurrent().addWindow(commentWindow);
-                commentWindow.setModal(true);
-                commentWindow.focus();
-            }
+        addCommentButton.addClickListener(e -> {
+            UI.getCurrent().addWindow(commentWindow);
+            commentWindow.setModal(true);
+            commentWindow.focus();
         });
 
         addComponent(addCommentButton);
 
-        setExpandRatio(table, 1);
+        setExpandRatio(grid, 1);
         setSpacing(true);
     }
 
@@ -173,9 +171,11 @@ public class Log extends VerticalLayout implements CalculatorLogger {
      */
     @Override
     public void log(String row) {
-        Integer id = ++line;
-        table.addItem(new Object[] { row }, id);
-        table.setCurrentPageFirstItemIndex(line + 1);
+
+        gridItems.add(row);
+        dataProvider.refreshAll();
+        grid.scrollTo(line);
+        line++;
     }
 
     /**
@@ -183,7 +183,8 @@ public class Log extends VerticalLayout implements CalculatorLogger {
      */
     @Override
     public void clear() {
-        table.removeAllItems();
+        gridItems.clear();
+        dataProvider.refreshAll();
         line = 0;
     }
 
