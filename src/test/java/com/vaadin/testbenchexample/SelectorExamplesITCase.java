@@ -2,11 +2,7 @@ package com.vaadin.testbenchexample;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 
 import com.vaadin.testbench.By;
 import com.vaadin.testbench.elements.ButtonElement;
@@ -61,54 +57,5 @@ public class SelectorExamplesITCase extends TestBase {
         // TextField Element we come across, and read its "value" attribute.
         assertEquals("3.0",
                 $(TextFieldElement.class).first().getAttribute("value"));
-    }
-
-    /**
-     * XPath queries are Selenium's way of finding elements with a rather
-     * complex but powerful syntax. You can use the classic Selenium style
-     * .findElements(By.xpath())
-     * 
-     * @throws AssertionError
-     * @throws IOException
-     */
-    @Test
-    public void onePlusTwoWithXPathSelectors() throws IOException,
-            AssertionError {
-
-        // Find an element whose text is exactly '1', that should be "button 1"
-        // and click it, ...
-        findElement(By.xpath("//*[text() = '1']")).click();
-
-        // Find the element that has been given the exact id "button_+", and
-        // click that
-        findElement(By.xpath("//*[@id = 'button_+']")).click();
-
-        // Here we do the same thing as with button 1, except we do it the old
-        // Selenium way, by calling the .findElement() method on the applicable
-        // search context (in this case, the driver).
-        findElement(By.xpath("//*[text() = '2']")).click();
-
-        // findElements returns a list of all matching elements. We can use this
-        // to find the element we're looking for - in this case, we want to find
-        // an element with the exact text "=". As soon as we find it, we send a
-        // click() request to that element and exit the loop.
-        List<WebElement> buttons = getDriver().findElements(
-                By.xpath("//*[contains(@class, 'v-button')]"));
-        for (WebElement e : buttons) {
-            if (e.getText().equals("=")) {
-                e.click();
-                break;
-            }
-        }
-
-        // Vaadin TextFields are implemented as input elements - we'll find an
-        // input element that has a specified class value of 'v-textfield', and
-        // then retrieve its 'value' attribute. This should be the Vaadin
-        // TextField's displayed text.
-        assertEquals(
-                "3.0",
-                findElement(
-                        By.xpath("//input[contains(@class, 'v-textfield')]"))
-                        .getAttribute("value"));
     }
 }

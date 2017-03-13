@@ -2,10 +2,10 @@ package com.vaadin.testbenchexample;
 
 import static org.junit.Assert.assertFalse;
 
-import com.vaadin.testbench.elements.ButtonElement;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.vaadin.testbench.TestBenchTestCase;
 
@@ -24,7 +24,8 @@ public class TestBase extends TestBenchTestCase {
 
         // Create a new Selenium driver - it is automatically extended to work
         // with TestBench
-        setDriver(new FirefoxDriver());
+        WebDriver driver = new ChromeDriver();
+        setDriver(driver);
 
         // Open the test application URL with the ?restartApplication URL
         // parameter to ensure Vaadin provides us with a fresh UI instance.

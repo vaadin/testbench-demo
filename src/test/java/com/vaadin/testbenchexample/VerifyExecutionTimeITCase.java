@@ -55,7 +55,7 @@ public class VerifyExecutionTimeITCase extends TestBase {
         long totalTimeSpentRendering = testBench().totalTimeSpentRendering();
         System.out.println("Rendering UI took " + totalTimeSpentRendering
                 + "ms");
-        if (totalTimeSpentRendering > 400) {
+        if (totalTimeSpentRendering > 1000) {
             fail("Rendering UI shouldn't take " + totalTimeSpentRendering
                     + "ms!");
         }

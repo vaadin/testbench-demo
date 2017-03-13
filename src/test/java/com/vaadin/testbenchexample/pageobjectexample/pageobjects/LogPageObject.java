@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbench.elements.ButtonElement;
-import com.vaadin.testbench.elements.TableElement;
+import com.vaadin.testbench.elements.GridElement;
 
 /**
  * This page object knows how to retrieve individual log lines from the
@@ -41,7 +41,7 @@ public class LogPageObject extends TestBenchTestCase {
         // To get at the CELL specified by a certain row and column in a Table,
         // we need to select them both, in the specific order of row first, then
         // col.
-        return $(TableElement.class).first().getCell(row, 0);
+        return $(GridElement.class).first().getCell(row, 0);
     }
 
     /**
