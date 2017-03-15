@@ -24,8 +24,8 @@ import com.vaadin.ui.themes.ValoTheme;
 @SuppressWarnings("serial")
 public class Log extends VerticalLayout implements CalculatorLogger {
 
-    private final ArrayList<String> gridItems = new ArrayList();
-    ListDataProvider<String> dataProvider = new ListDataProvider<String>(gridItems);
+    private final ArrayList<String> gridItems = new ArrayList<>();
+    ListDataProvider<String> dataProvider = new ListDataProvider<>(gridItems);
     /**
      * Nested class CommentWindow is used to get user comments to be displayed
      * among the actual activity log.
@@ -138,7 +138,7 @@ public class Log extends VerticalLayout implements CalculatorLogger {
     private int line = 0;
 
     public Log() {
-        grid = new Grid();
+        grid = new Grid<>();
         grid.addColumn(String::toString).setCaption("Name");
         grid.setSizeFull();
 
