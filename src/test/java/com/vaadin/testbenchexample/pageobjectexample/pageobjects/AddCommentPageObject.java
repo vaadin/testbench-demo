@@ -27,7 +27,9 @@ public class AddCommentPageObject extends TestBenchTestCase {
         // Window we expect to be visible is the Add Comment modal dialog
         // window.
         $(WindowElement.class).$(TextFieldElement.class).first()
-                .sendKeys(comment, Keys.RETURN);
+                .setValue(comment);
+        $(WindowElement.class).$(TextFieldElement.class).first()
+                .setValue(Keys.RETURN);
         return this;
     }
 

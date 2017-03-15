@@ -1,6 +1,8 @@
 package com.vaadin.testbenchexample;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.openqa.selenium.Keys;
@@ -9,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import com.vaadin.testbench.By;
 import com.vaadin.testbench.commands.TestBenchElementCommands;
 import com.vaadin.testbench.elements.ButtonElement;
-import com.vaadin.testbench.elements.TableElement;
+import com.vaadin.testbench.elements.GridElement;
 import com.vaadin.testbench.elements.TextFieldElement;
 import com.vaadin.testbench.elements.WindowElement;
 
@@ -51,12 +53,12 @@ public class AdvancedCommandsITCase extends TestBase {
 
         // Check that the display is correct (1 + 2 = 3)
         assertEquals("3.0",
-                $(TextFieldElement.class).first().getAttribute("value"));
+                $(TextFieldElement.class).first().getValue());
 
         // We fill in a comment and verify the commenting feature works as
         // expected.
         getButton("Add Comment").click();
-        WebElement commentField = $(WindowElement.class).$(
+        TextFieldElement commentField = $(WindowElement.class).$(
                 TextFieldElement.class).first();
 
         // Make sure the input is empty
@@ -64,7 +66,9 @@ public class AdvancedCommandsITCase extends TestBase {
 
         // Sending Keys.RETURN updates the input value and triggers
         // a Shortcut clicking the OK button for us.
-        commentField.sendKeys(COMMENT_TEXT, Keys.RETURN);
+        commentField.setValue(COMMENT_TEXT);
+        commentField.sendKeys(Keys.RETURN);
+
 
         // Ensure window is closed
         if ($(WindowElement.class).exists()) {
@@ -72,8 +76,8 @@ public class AdvancedCommandsITCase extends TestBase {
         }
 
         // Verify the second row in log contains our comment
-        // Uses Vaadin table selector with subpart.
-        String secondRowText = $(TableElement.class).first().getCell(1, 0)
+        // Uses Vaadin grid selector with subpart.
+        String secondRowText = $(GridElement.class).first().getCell(1, 0)
                 .getText();
         assertTrue(secondRowText.contains(COMMENT_TEXT));
     }

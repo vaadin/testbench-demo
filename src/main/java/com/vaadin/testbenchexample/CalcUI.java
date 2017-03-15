@@ -23,7 +23,7 @@ public class CalcUI extends UI {
         applicationPanel.setStyleName("calculator-app");
         applicationPanel.setSizeUndefined();
 
-        // Use Vaadin 7's style handling feature to add a margin around our app
+        // Use Vaadin's style handling feature to add a margin around our app
         getPage().getStyles().add(".calculator-app { margin: 25px; }");
 
         // Instantiate a keypad, which contains our main logic

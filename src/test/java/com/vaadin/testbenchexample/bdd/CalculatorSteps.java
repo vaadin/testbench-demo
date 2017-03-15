@@ -1,18 +1,18 @@
 package com.vaadin.testbenchexample.bdd;
 
-import com.vaadin.testbench.TestBench;
-import com.vaadin.testbench.TestBenchTestCase;
-import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalculatorPageObject;
+import static org.junit.Assert.assertEquals;
+
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import static org.junit.Assert.*;
+import com.vaadin.testbench.TestBenchTestCase;
+import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalculatorPageObject;
 
 /**
  * This class maps steps in the calculator story files to TestBench
@@ -27,7 +27,7 @@ public class CalculatorSteps extends TestBenchTestCase {
 
     @BeforeScenario
     public void setUpWebDriver() {
-        driver = TestBench.createDriver(new FirefoxDriver());
+        driver = new ChromeDriver();
         calculator = PageFactory.initElements(driver, CalculatorPageObject.class);
     }
 
