@@ -11,7 +11,7 @@ import com.vaadin.testbench.elements.PanelElement;
 import com.vaadin.testbench.elements.TextFieldElement;
 
 /**
- * This example demonstrates usege of varios element selection methods.
+ * This example demonstrates usage of various element selection methods.
  */
 public class SelectorExamplesITCase extends TestBase {
 
