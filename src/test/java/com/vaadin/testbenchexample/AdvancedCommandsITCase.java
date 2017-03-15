@@ -76,7 +76,7 @@ public class AdvancedCommandsITCase extends TestBase {
         }
 
         // Verify the second row in log contains our comment
-        // Uses Vaadin table selector with subpart.
+        // Uses Vaadin grid selector with subpart.
         String secondRowText = $(GridElement.class).first().getCell(1, 0)
                 .getText();
         assertTrue(secondRowText.contains(COMMENT_TEXT));

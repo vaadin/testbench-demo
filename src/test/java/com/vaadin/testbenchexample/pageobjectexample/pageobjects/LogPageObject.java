@@ -10,7 +10,7 @@ import com.vaadin.testbench.elements.GridElement;
 
 /**
  * This page object knows how to retrieve individual log lines from the
- * calculator log table.
+ * calculator log grid.
  */
 public class LogPageObject extends TestBenchTestCase {
 
@@ -38,7 +38,7 @@ public class LogPageObject extends TestBenchTestCase {
      */
     private WebElement findRowElement(int row) {
 
-        // To get at the CELL specified by a certain row and column in a Table,
+        // To get at the CELL specified by a certain row and column in a Grid,
         // we need to select them both, in the specific order of row first, then
         // col.
         return $(GridElement.class).first().getCell(row, 0);
