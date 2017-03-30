@@ -1,8 +1,10 @@
-# Running the maven example
+# Testbench demo
 
 This project is a comprehensive collection of samples on how to use Vaadin TestBench.
 If you are looking for a getting started type tutorial,
 go to https://github.com/vaadin/testbench-tutorial.
+
+## Running the maven example
 
 The project is built using Maven. A similar setup can be done using other build systems as well.
 The maven project can easily be imported into any IDE supporting
@@ -23,8 +25,6 @@ one is probably Maven and the jetty-maven-plugin:
 
 	mvn jetty:run
 
-
-## About the maven example project
 
 ### How the project was created
 
@@ -134,7 +134,7 @@ separates the low-level page structure from the business logic, as described in
 Maintainable Tests](https://vaadin.com/docs/-/part/testbench/testbench-maintainable.html). The page object classes that handle low-level interaction
 with the application views are in the `pageobjects` subpackage.
 
-##### [bdd/CalculatorSteps.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/CalculatorSteps.java) and [bdd/SimpleCalculation.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/SimpleCalculation.java)
+#### [bdd/CalculatorSteps.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/CalculatorSteps.java) and [bdd/SimpleCalculation.java](https://github.com/vaadin/testbench-demo/blob/master/src/test/java/com/vaadin/testbenchexample/bdd/SimpleCalculation.java)
 Shows how to develop tests following the __behaviour-driven development__ (BDD)
 model, by using the [JBehave framework](http://jbehave.org).
 `SimpleCalculation.java` defines a JUnit-based user story with one
