@@ -9,11 +9,13 @@
     <name>Vaadin TestBench Demo Application</name>
 
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <vaadin.version>8.0.0</vaadin.version>
-        <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
-        <vaadin.testbench.version>5.0.0</vaadin.testbench.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <vaadin.version>10.0.0.alpha19</vaadin.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <repositories>
         <repository>
@@ -21,45 +23,23 @@
             <url>http://maven.vaadin.com/vaadin-addons</url>
         </repository>
         <repository>
-            <id>vaadin-snapshots</id>
-            <url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <id>vaadin-prereleases</id>
+            <url>http://maven.vaadin.com/vaadin-prereleases</url>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>vaadin-snapshots</id>
-            <url>http://oss.sonatype.org/content/repositories/vaadin-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
+            <id>vaadin-prereleases</id>
+            <url>http://maven.vaadin.com/vaadin-prereleases</url>
         </pluginRepository>
     </pluginRepositories>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-
-            <!-- A simple Jetty test server at http://localhost:8080/
-                can be launched with the Maven goal jetty:run and stopped with jetty:stop. 
-                Also configured to run during the integration-test phase -->
-            <plugin>
+                <!-- A simple Jetty test server at http://localhost:8080/ 
+                    Can be launched with the Maven goal jetty:run. Automatically run during the 
+                    integration-test phase -->
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.2.3.v20140905</version>
@@ -68,19 +48,12 @@
                     <stopKey>testbench-demo</stopKey>
                 </configuration>
                 <executions>
-                    <!-- start and stop jetty (running our app) when running
-                        integration tests -->
                     <execution>
                         <id>start-jetty</id>
                         <phase>pre-integration-test</phase>
                         <goals>
                             <goal>start</goal>
                         </goals>
-                        <configuration>
-                            <scanIntervalSeconds>0</scanIntervalSeconds>
-                            <stopKey>STOP</stopKey>
-                            <stopPort>8866</stopPort>
-                        </configuration>
                     </execution>
                     <execution>
                         <id>stop-jetty</id>
@@ -88,16 +61,11 @@
                         <goals>
                             <goal>stop</goal>
                         </goals>
-                        <configuration>
-                            <stopKey>STOP</stopKey>
-                            <stopPort>8866</stopPort>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
 
-            <!-- The Surefire plugin will run our *ITCase tests in the integration-test 
-                phase and do the reporting in the verify phase -->
+            <!-- Runs the integration tests (*IT) after the server is started -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -111,57 +79,43 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <includes>
-                        <include>**/*ITCase.java</include>
-                        <include>**/bdd/*.java</include>
-                    </includes>
-                    <!-- So that the browser correctly gains focus on Mac 
-                        OS X -->
-                    <systemProperties>
-                        <property>
-                            <name>java.awt.headless</name>
-                            <value>true</value>
-                        </property>
-                    </systemProperties>
+                    <trimStackTrace>false</trimStackTrace>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-server</artifactId>
-            <version>${vaadin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-client-compiled</artifactId>
-            <version>${vaadin.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-themes</artifactId>
-            <version>${vaadin.version}</version>
+            <artifactId>vaadin-core</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.0.1</version>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-testbench</artifactId>
-            <version>${vaadin.testbench.version}</version>
             <scope>test</scope>
         </dependency>
-	<dependency>
-	    <groupId>com.vaadin</groupId>
-	    <artifactId>vaadin-testbench-api</artifactId>
-	    <version>${vaadin.version}</version>
-	    <scope>test</scope>
-	</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench-core</artifactId>
+            <version>6.0.0.alpha13</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -173,6 +127,10 @@
             <artifactId>jbehave-core</artifactId>
             <version>3.7.5</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
         </dependency>
     </dependencies>
 </project>
