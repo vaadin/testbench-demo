@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbenchexample.AbstractIT;
 import com.vaadin.testbenchexample.SimpleIT;
-import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalcViewElement;
+import com.vaadin.testbenchexample.pageobjectexample.pageobjects.KeypadElement;
 
 /**
  * This case demonstrates usage of execution time reporting.
@@ -27,7 +27,7 @@ public class PerformanceIT extends AbstractIT {
     @Ignore("Flow is currently missing forceSync")
     public void verifyServerExecutionTime() throws Exception {
         long currentSessionTime = testBench().totalTimeSpentServicingRequests();
-        $(CalcViewElement.class).first().calculate("1+2");
+        $(KeypadElement.class).first().calculate("1+2");
 
         long timeSpentByServerForSimpleCalculation = testBench()
                 .totalTimeSpentServicingRequests() - currentSessionTime;

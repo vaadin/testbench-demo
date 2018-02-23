@@ -1,18 +1,18 @@
 package com.vaadin.testbenchexample.pageobjectexample.pageobjects;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
-import com.vaadin.flow.component.orderedlayout.testbench.HorizontalLayoutElement;
+import com.vaadin.flow.component.orderedlayout.testbench.VerticalLayoutElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
-import com.vaadin.testbenchexample.CalcView;
+import com.vaadin.testbench.annotations.Attribute;
 
 /**
- * The CalculatorElement is a page object which knows how to enter digits and
- * operands in the calculator and read back the display.
+ * A page object for the KeyPad class.
  * <p>
- * This element corresponds to the {@link CalcView} class and the parent class
- * defines the tag name for the class.
+ * Knows how to enter digits and operands in the calculator and read back the
+ * display.
  */
-public class CalcViewElement extends HorizontalLayoutElement {
+@Attribute(name = "id", value = Attribute.SIMPLE_CLASS_NAME)
+public class KeypadElement extends VerticalLayoutElement {
 
     /**
      * Pushes the specified button.
@@ -60,11 +60,4 @@ public class CalcViewElement extends HorizontalLayoutElement {
         return $(TextFieldElement.class).id("display").getValue();
     }
 
-    public CommentWindowElement openCommentWindow() {
-        $(ButtonElement.class).id("add-comment").click();
-
-        // Need "onPage()" here as the window element is not a child of this
-        // calc view (it's attached to the document body)
-        return $(CommentWindowElement.class).onPage().first();
-    }
 }

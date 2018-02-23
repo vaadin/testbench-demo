@@ -10,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBenchTestCase;
-import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalcViewElement;
+import com.vaadin.testbenchexample.pageobjectexample.pageobjects.KeypadElement;
 
 /**
  * This class maps steps in the calculator story files to TestBench operations
@@ -20,13 +20,13 @@ import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalcViewElement
  */
 public class CalculatorSteps extends TestBenchTestCase {
 
-    private CalcViewElement calculator;
+    private KeypadElement calculator;
 
     @BeforeScenario
     public void setUpWebDriver() throws Exception {
         setDriver(new ChromeDriver());
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
-        calculator = $(CalcViewElement.class).first();
+        calculator = $(KeypadElement.class).first();
     }
 
     @AfterScenario

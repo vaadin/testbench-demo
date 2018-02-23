@@ -32,6 +32,7 @@ public class Keypad extends VerticalLayout {
     };
 
     public Keypad(Log log) {
+        setId("keypad");
         logic = new CalculatorLogic(log::log, log::clear);
 
         setSpacing(true);
