@@ -1,14 +1,12 @@
 package com.vaadin.testbenchexample;
 
 import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 
 /**
  * Instances of this class are used to store activity information from
- * {@link Keypad} and displayed in a {@link Grid} in the application. This class
- * implements {@link CalculatorLogger}.
+ * {@link Keypad} and displayed in a {@link Log} in the application.
  */
 public class Log extends VerticalLayout {
 

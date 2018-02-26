@@ -14,6 +14,7 @@ public class CommentWindow extends Dialog {
     private Button okButton;
 
     public CommentWindow(Consumer<String> onOk) {
+        addClassName("comment-window");
         commentField = new TextField();
         commentField.setWidth("100%");
         commentField.setId("comment");

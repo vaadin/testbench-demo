@@ -11,7 +11,7 @@ import org.openqa.selenium.HasCapabilities;
 import com.vaadin.testbench.Parameters;
 import com.vaadin.testbench.commands.TestBenchCommandExecutor;
 import com.vaadin.testbenchexample.AbstractIT;
-import com.vaadin.testbenchexample.pageobjectexample.pageobjects.CalcViewElement;
+import com.vaadin.testbenchexample.pageobjectexample.pageobjects.KeypadElement;
 
 /**
  * This example contains usage examples of screenshot comparison feature.
@@ -38,7 +38,7 @@ public class ScreenshotIT extends AbstractIT {
 
     @Test
     public void testOnePlusTwo() throws Exception {
-        CalcViewElement calcView = $(CalcViewElement.class).first();
+        KeypadElement calcView = $(KeypadElement.class).first();
         // Change this calculation after running the test once to see how errors
         // in screenshots are verified.
         // The output is placed in target/screenshot_errors

@@ -12,6 +12,7 @@ import com.vaadin.flow.theme.lumo.Lumo;
 public class CalcView extends HorizontalLayout {
 
     public CalcView() {
+        setId("calc-view");
         setSpacing(true);
         setHeight("300px");
         Log log = new Log();
