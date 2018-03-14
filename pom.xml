@@ -16,7 +16,6 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <vaadin.version>10.0.0.beta2</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <ci-sauce.version>1.132</ci-sauce.version>
         <sauce.options>--tunnel-identifier ${maven.build.timestamp}</sauce.options>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HHmmss.SSSZ</maven.build.timestamp.format>
     </properties>
@@ -82,12 +81,6 @@
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
             <version>3.7.5</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.saucelabs</groupId>
-            <artifactId>ci-sauce</artifactId>
-            <version>${ci-sauce.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
