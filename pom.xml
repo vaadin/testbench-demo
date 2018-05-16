@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <vaadin.version>10.0.0.beta2</vaadin.version>
+        <vaadin.version>10.0.0.beta10</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <sauce.options>--tunnel-identifier ${maven.build.timestamp}</sauce.options>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HHmmss.SSSZ</maven.build.timestamp.format>
@@ -62,14 +62,6 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-testbench</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-components-testbench</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
