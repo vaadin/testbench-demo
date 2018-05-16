@@ -1,11 +1,9 @@
 package com.vaadin.testbenchexample.pageobjectexample.pageobjects;
 
-import org.openqa.selenium.SearchContext;
-
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.dialog.testbench.DialogElement;
+import com.vaadin.flow.component.orderedlayout.testbench.VerticalLayoutElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
-import com.vaadin.testbench.TestBenchElement;
 
 public class CommentWindowElement extends DialogElement {
 
@@ -20,7 +18,7 @@ public class CommentWindowElement extends DialogElement {
     }
 
     private TextFieldElement getCommentInput() {
-        return $(TextFieldElement.class).id("comment");
+        return $(VerticalLayoutElement.class).first().$(TextFieldElement.class).id("comment");
     }
 
     /**
@@ -35,12 +33,6 @@ public class CommentWindowElement extends DialogElement {
      * text field.
      */
     public void cancel() {
-        $(ButtonElement.class).id("cancel").click();
-    }
-
-    @Override
-    public SearchContext getContext() {
-        return ((TestBenchElement) super.getContext()).getPropertyElement("$",
-                "content", "firstElementChild");
+        $(VerticalLayoutElement.class).first().$(ButtonElement.class).id("cancel").click();
     }
 }
