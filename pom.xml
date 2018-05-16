@@ -130,7 +130,10 @@
                     <systemPropertyVariables>
                         <!-- Pass location of downloaded webdrivers to the tests -->
                         <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <sauce.user>${sauce.user}</sauce.user>
+                        <sauce.sauceAccessKey>${sauce.sauceAccessKey}</sauce.sauceAccessKey>
                         <sauce.options>${sauce.options}</sauce.options>
+                        <com.vaadin.testbench.Parameters.gridBrowsers>${com.vaadin.testbench.Parameters.gridBrowsers}</com.vaadin.testbench.Parameters.gridBrowsers>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
