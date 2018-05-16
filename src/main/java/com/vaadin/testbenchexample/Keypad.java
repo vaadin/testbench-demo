@@ -32,10 +32,12 @@ public class Keypad extends VerticalLayout {
     };
 
     public Keypad(Log log) {
+        setWidth(null);
         setId("keypad");
         logic = new CalculatorLogic(log::log, log::clear);
 
         setSpacing(true);
+        setPadding(false);
 
         display = new TextField();
         display.setReadOnly(true);
