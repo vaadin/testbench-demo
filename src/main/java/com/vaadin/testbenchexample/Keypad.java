@@ -1,8 +1,8 @@
 package com.vaadin.testbenchexample;
 
+import com.vaadin.flow.component.ClickEvent;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.ComponentEventListener;
-import com.vaadin.flow.component.HasClickListeners.ClickEvent;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -32,10 +32,12 @@ public class Keypad extends VerticalLayout {
     };
 
     public Keypad(Log log) {
+        setWidth(null);
         setId("keypad");
         logic = new CalculatorLogic(log::log, log::clear);
 
         setSpacing(true);
+        setPadding(false);
 
         display = new TextField();
         display.setReadOnly(true);

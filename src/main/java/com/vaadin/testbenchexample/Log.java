@@ -20,6 +20,7 @@ public class Log extends VerticalLayout {
 
         messages = new VerticalLayout();
         messages.setId("messages");
+        messages.setPadding(false);
         messages.setSpacing(false);
         messages.setSizeFull();
         // messages.getElement().getStyle().set("max-height", "250px");
@@ -39,6 +40,7 @@ public class Log extends VerticalLayout {
         add(messages, addCommentButton);
 
         setSpacing(true);
+        setPadding(false);
     }
 
     public void log(String row) {
