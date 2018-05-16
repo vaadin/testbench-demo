@@ -14,8 +14,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <failOnMissingWebXml>false</failOnMissingWebXml>
-        <vaadin.version>10.0.0.alpha21</vaadin.version>
+        <vaadin.version>10.0.0.beta10</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
+        <sauce.options>--tunnel-identifier ${maven.build.timestamp}</sauce.options>
+        <maven.build.timestamp.format>yyyy-MM-dd'T'HHmmss.SSSZ</maven.build.timestamp.format>
     </properties>
     <repositories>
         <repository>
@@ -62,16 +64,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench-core</artifactId>
-            <version>6.0.0.alpha15</version>
-        </dependency>
-        <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-components-testbench</artifactId>
-            <version>1.0.0.alpha6</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
@@ -80,7 +72,7 @@
         <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
-            <version>3.7.5</version>
+            <version>4.1.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -92,8 +84,8 @@
     <build>
         <plugins>
             <plugin>
-                <!-- A simple Jetty test server at http://localhost:8080/ 
-                    Can be launched with the Maven goal jetty:run. Automatically run during the 
+                <!-- A simple Jetty test server at http://localhost:8080/
+                    Can be launched with the Maven goal jetty:run. Automatically run during the
                     integration-test phase -->
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -138,6 +130,10 @@
                     <systemPropertyVariables>
                         <!-- Pass location of downloaded webdrivers to the tests -->
                         <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <sauce.user>${sauce.user}</sauce.user>
+                        <sauce.sauceAccessKey>${sauce.sauceAccessKey}</sauce.sauceAccessKey>
+                        <sauce.options>${sauce.options}</sauce.options>
+                        <com.vaadin.testbench.Parameters.gridBrowsers>${com.vaadin.testbench.Parameters.gridBrowsers}</com.vaadin.testbench.Parameters.gridBrowsers>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -164,4 +160,45 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>sauce</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.saucelabs.maven.plugin</groupId>
+                        <artifactId>sauce-connect-plugin</artifactId>
+                        <version>2.1.23</version>
+                        <executions>
+                            <!-- Start Sauce Connect prior to running the integration tests -->
+                            <execution>
+                                <id>start-sauceconnect</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>start-sauceconnect</goal>
+                                </goals>
+                            </execution>
+                            <!-- Stop the Sauce Connect process after the integration tests have
+                                finished -->
+                            <execution>
+                                <id>stop-sauceconnect</id>
+                                <phase>post-integration-test</phase>
+                                <goals>
+                                    <goal>stop-sauceconnect</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>javax.xml.bind</groupId>
+                                <artifactId>jaxb-api</artifactId>
+                                <version>2.3.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+    </profiles>
 </project>
