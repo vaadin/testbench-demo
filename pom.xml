@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vaadin</groupId>
     <artifactId>testbench-demo</artifactId>
@@ -57,8 +57,8 @@
             </plugin>
 
             <!-- A simple Jetty test server at http://localhost:8080/
-                can be launched with the Maven goal jetty:run and stopped with jetty:stop. 
-                Also configured to run during the integration-test phase -->
+            can be launched with the Maven goal jetty:run and stopped with jetty:stop.
+            Also configured to run during the integration-test phase -->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -69,7 +69,7 @@
                 </configuration>
                 <executions>
                     <!-- start and stop jetty (running our app) when running
-                        integration tests -->
+                    integration tests -->
                     <execution>
                         <id>start-jetty</id>
                         <phase>pre-integration-test</phase>
@@ -96,8 +96,8 @@
                 </executions>
             </plugin>
 
-            <!-- The Surefire plugin will run our *ITCase tests in the integration-test 
-                phase and do the reporting in the verify phase -->
+            <!-- The Surefire plugin will run our *ITCase tests in the integration-test
+            phase and do the reporting in the verify phase -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
@@ -115,15 +115,41 @@
                         <include>**/*ITCase.java</include>
                         <include>**/bdd/*.java</include>
                     </includes>
-                    <!-- So that the browser correctly gains focus on Mac 
-                        OS X -->
+                    <!-- So that the browser correctly gains focus on Mac
+                    OS X -->
                     <systemProperties>
                         <property>
                             <name>java.awt.headless</name>
                             <value>true</value>
                         </property>
                     </systemProperties>
+                    <trimStackTrace>false</trimStackTrace>
+                    <systemPropertyVariables>
+                        <!-- Pass location of downloaded webdrivers to the tests -->
+                        <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                    </systemPropertyVariables>
                 </configuration>
+            </plugin>
+            <!-- Plugin which automatically downloads needed webdrivers -->
+            <!-- Configured in webdriver.xml. -->
+            <!-- Currently only downloads Chromedriver, remove commented
+            out parts of webdriver.xml to download other webdrivers -->
+            <plugin>
+                <groupId>com.lazerycode.selenium</groupId>
+                <artifactId>driver-binary-downloader-maven-plugin</artifactId>
+                <version>1.0.17</version>
+                <configuration>
+                    <downloadedZipFileDirectory>${project.basedir}/webdriver/zips</downloadedZipFileDirectory>
+                    <rootStandaloneServerDirectory>${project.basedir}/webdriver</rootStandaloneServerDirectory>
+                    <customRepositoryMap>${project.basedir}/webdrivers.xml</customRepositoryMap>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>selenium</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
@@ -156,12 +182,12 @@
             <version>${vaadin.testbench.version}</version>
             <scope>test</scope>
         </dependency>
-	<dependency>
-	    <groupId>com.vaadin</groupId>
-	    <artifactId>vaadin-testbench-api</artifactId>
-	    <version>${vaadin.version}</version>
-	    <scope>test</scope>
-	</dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-testbench-api</artifactId>
+            <version>${vaadin.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
