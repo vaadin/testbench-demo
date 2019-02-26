@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <vaadin.version>10.0.1</vaadin.version>
+        <vaadin.version>12.0.7</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <repositories>
@@ -87,7 +87,7 @@
                     integration-test phase -->
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.3.v20140905</version>
+                <version>9.4.15.v20190215</version>
                 <configuration>
                     <stopPort>9966</stopPort>
                     <stopKey>testbench-demo</stopKey>
