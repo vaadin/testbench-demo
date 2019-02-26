@@ -1,18 +1,22 @@
-Running the maven example
-=========================
+# TestBench Demo
 
-This is a simple demo project that uses Vaadin TestBench. The project produces 
-a standard WAR file containing a simple calculator application written with Vaadin. 
-During the build phase the artifact is tested using Vaadin TestBench. 
+This project is a collection of samples on how to use Vaadin TestBench.
+If you are looking for more information on TestBench, see https://vaadin.com/docs/v10/testbench/testbench-overview.html
 
-The project is built using Maven. A similar setup can be done using other build
-systems as well. The maven project can easily be imported into any IDE supporting 
-Maven or used via the command line interface. Maven can be downlaoded from:
-http://maven.apache.org
+This version is for Vaadin 10.
+For a version for Vaadin Framework 8, see https://github.com/vaadin/testbench-demo/tree/8.0
+For a version for Vaadin Framework 7, see https://github.com/vaadin/testbench-demo/tree/7.7
 
+## Running the Example
+
+The project is built using Maven. A similar setup can be done using other build systems as well.
+The Maven project can easily be imported into any IDE supporting
+Maven or used via the command line interface. Maven can be downloaded from:
+http://maven.apache.org.
+
+The project produces a standard WAR file containing a simple calculator application written with Vaadin.
 During the build process TestBench tests are automatically run against the final
-war file using a Jetty server. Java classes (JUnit tests in this project) ending 
-in "ITCase" are considered integration tests. The tests can be run from the
+war file using a Jetty server. The tests can be run from the
 command line by issuing the following command:
 
 	mvn verify
@@ -23,58 +27,14 @@ one is probably Maven and the jetty-maven-plugin:
 
 	mvn jetty:run
 
+### Sample code classes explained
 
-About the maven example project
-===============================
+The source code for the application to be tested, a desktop calculator
+application, is given in the `src/main/java` subfolder.
 
-How the project was created
----------------------------
-The project is based on the vaadin-archetype-application archetype and originally 
-created like this:
+The TestBench tests for the application are located under the
+`src/test/java` subfolder.
 
-	mvn archetype:generate \
-	-DarchetypeGroupId=com.vaadin \
-	-DarchetypeArtifactId=vaadin-archetype-application \
-	-DarchetypeVersion=LATEST \
-	-DgroupId=your.company \
-	-DartifactId=project-name \
-	-Dversion=1.0 \
-	-Dpackaging=war
+### Screenshot comparison in the example project
 
-After the project was generated, the pom.xml was edited and the following 
-dependencies were added:
-
-	<dependency>
-		<groupId>com.vaadin</groupId>
-		<artifactId>vaadin-testbench</artifactId>
-		<version>4.0.0.alpha3</version>
-		<scope>test</scope>
-	</dependency>
-	<dependency>
-		<groupId>junit</groupId>
-		<artifactId>junit</artifactId>
-		<version>4.11</version>
-		<scope>test</scope>
-	</dependency>
-
-And optionally for BDD with JBehave:
-
-    <dependency>
-        <groupId>org.jbehave</groupId>
-        <artifactId>jbehave-core</artifactId>
-        <version>3.7.5</version>
-        <scope>test</scope>
-    </dependency>
-
-Additionally jetty-maven-plugin is used to automatically deploy the war to a Jetty server 
-during the integration-test phase and maven-failsafe-plugin is configured to run tests 
-named using the *ITCase convention as well as all BDD tests in the com.vaadin.testbenchexample.bdd
-package from the src/test/java directory. Check their setup in the pom.xml file.
-
-That's it.
-
-
-Screenshot comparison in the example project
----------------------------------------------
-The screenshot comparison example tests are disabled by default. See the "Screenshot\_Comparison\_Tests.pdf"
-document for instructions on how to enable them and, if necessary, update the reference images.
+The screenshot comparison example in `src/test/java/com/vaadin/testbenchexample/advanced/ScreenshotIT.java` grabs a screenshot and compares it to a reference file in `src/test/screenshots`. The first time it is run, it will automatically generate a reference screenshot in that folder, e.g. `src/test/screenshots/oneplustwo_mac_chrome_64.png` (exact file name depends on your operating system and browser). Normally the reference file generation would be handled by hand so you can verify that the screenshots look correct at the same time.
