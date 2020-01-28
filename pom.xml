@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <vaadin.version>12.0.7</vaadin.version>
+        <vaadin.version>14.1.16</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <repositories>
@@ -43,8 +43,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- TODO remove once vaadin-components-testbench is removed from components -->
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-components-testbench</artifactId>
+                <version>2.0.2</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -82,12 +89,12 @@
     <build>
         <plugins>
             <plugin>
-                <!-- A simple Jetty test server at http://localhost:8080/
-                    Can be launched with the Maven goal jetty:run. Automatically run during the
+                <!-- A simple Jetty test server at http://localhost:8080/ 
+                    Can be launched with the Maven goal jetty:run. Automatically run during the 
                     integration-test phase -->
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.15.v20190215</version>
+                <version>9.4.26.v20200117</version>
                 <configuration>
                     <stopPort>9966</stopPort>
                     <stopKey>testbench-demo</stopKey>
@@ -133,7 +140,7 @@
             </plugin>
             <!-- Plugin which automatically downloads needed webdrivers -->
             <!-- Configured in webdriver.xml. -->
-            <!-- Currently only downloads Chromedriver, remove commented
+            <!-- Currently only downloads Chromedriver, remove commented 
                 out parts of webdriver.xml to download other webdrivers -->
             <plugin>
                 <groupId>com.lazerycode.selenium</groupId>

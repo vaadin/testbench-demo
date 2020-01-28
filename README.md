@@ -3,7 +3,8 @@
 This project is a collection of samples on how to use Vaadin TestBench.
 If you are looking for more information on TestBench, see https://vaadin.com/docs/v10/testbench/testbench-overview.html
 
-This version is for Vaadin 12.
+This version is for Vaadin 14.
+For a version for Vaadin Platform 10, go back in the Git repository history.
 For a version for Vaadin Framework 8, see https://github.com/vaadin/testbench-demo/tree/8.0
 For a version for Vaadin Framework 7, see https://github.com/vaadin/testbench-demo/tree/7.7
 
