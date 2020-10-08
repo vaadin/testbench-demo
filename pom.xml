@@ -129,6 +129,7 @@
                     <systemPropertyVariables>
                         <!-- Pass location of downloaded webdrivers to the tests -->
                         <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
+                        <webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
