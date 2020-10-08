@@ -17,7 +17,7 @@
             </version>
         </driver>
         -->
-        <driver id="edge">
+        <!--driver id="edge">
             <version id="87.0.663.0">
                 <bitrate sixtyfourbit="true" thirtytwobit="false">
                     <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win64.zip</filelocation>
@@ -27,6 +27,20 @@
                 <bitrate sixtyfourbit="false" thirtytwobit="true">
                     <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win32.zip</filelocation>
                     <hash>436da6f96d350f0125ff1463050c3154205ae7dc</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+            </version>
+        </driver-->
+        <driver id="edge">
+            <version id="85.0.564.70">
+                <bitrate sixtyfourbit="true" thirtytwobit="false">
+                    <filelocation>https://msedgedriver.azureedge.net/85.0.564.70/edgedriver_win64.zip</filelocation>
+                    <hash>3bacb0e2a6fc69f3c490ca0a633db953dc723efa</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+                <bitrate sixtyfourbit="false" thirtytwobit="true">
+                    <filelocation>https://msedgedriver.azureedge.net/85.0.564.70/edgedriver_win32.zip</filelocation>
+                    <hash>4c9d9459c0f08683e6b95859202eb237028951e1</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
