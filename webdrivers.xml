@@ -77,22 +77,21 @@
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
-        </driver>
+        </driver-->
         <driver id="marionette">
-            <version id="0.19.1">
+            <version id="0.27.0">
                 <bitrate sixtyfourbit="true">
-                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-win64.zip</filelocation>
-                    <hash>1d6a7ade773f98b3b5a15ace3b6a06b1ad97a8f1</hash>
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win64.zip</filelocation>
+                    <hash>83a825d58c364222a691679e9fed4973cb8f4fd2</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
                 <bitrate thirtytwobit="true">
-                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-win32.zip</filelocation>
-                    <hash>74258f5c73a8fce66fbc3ecd622dae890f1e475a</hash>
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win32.zip</filelocation>
+                    <hash>b4d5f5d099784371cfe5fc63b4b066be56a193a2</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
         </driver>
-        -->
     </windows>
     <linux>
         <driver id="googlechrome">

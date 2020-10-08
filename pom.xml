@@ -130,6 +130,7 @@
                         <!-- Pass location of downloaded webdrivers to the tests -->
                         <webdriver.chrome.driver>${webdriver.chrome.driver}</webdriver.chrome.driver>
                         <webdriver.edge.driver>${webdriver.edge.driver}</webdriver.edge.driver>
+                        <webdriver.gecko.driver>${webdriver.gecko.driver}</webdriver.gecko.driver>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
