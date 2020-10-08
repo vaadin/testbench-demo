@@ -2,7 +2,6 @@ package com.vaadin.testbenchexample;
 
 import org.junit.Before;
 import org.junit.Rule;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.ScreenshotOnFailureRule;
@@ -20,7 +19,7 @@ public abstract class AbstractIT extends TestBenchTestCase {
 
     @Before
     public void setUp() throws Exception {
-        setDriver(new ChromeDriver());
+        setDriver(WebDriverFactory.getInstance().createDriver());
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }
 
