@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -66,6 +67,9 @@ public class WebDriverFactory {
         }
         else if (webDriverName.equalsIgnoreCase("internetexplorer")){
             return TestBench.createDriver(new InternetExplorerDriver());
+        }
+        else if (webDriverName.equalsIgnoreCase("safari")){
+            return TestBench.createDriver(new SafariDriver());
         }
         throw new IllegalArgumentException("At this time I do not understand '"+webDriverName+"', extend me.");
     }
