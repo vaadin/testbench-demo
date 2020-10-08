@@ -140,7 +140,7 @@
             <plugin>
                 <groupId>com.lazerycode.selenium</groupId>
                 <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-                <version>1.0.17</version>
+                <version>1.0.18</version>
                 <configuration>
                     <downloadedZipFileDirectory>${project.basedir}/webdriver/zips</downloadedZipFileDirectory>
                     <rootStandaloneServerDirectory>${project.basedir}/webdriver</rootStandaloneServerDirectory>

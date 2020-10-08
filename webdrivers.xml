@@ -16,16 +16,21 @@
                 </bitrate>
             </version>
         </driver>
+        -->
         <driver id="edge">
-            <version id="5.16299">
-                <bitrate sixtyfourbit="true" thirtytwobit="true">
-                    <filelocation>https://download.microsoft.com/download/D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe</filelocation>
-                    <hash>60c4b6d859ee868ba5aa29c1e5bfa892358e3f96</hash>
+            <version id="87.0.663.0">
+                <bitrate sixtyfourbit="true" thirtytwobit="false">
+                    <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win64.zip</filelocation>
+                    <hash>2801ab960194f7d975fd387bf01a42d88d19cb53</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+                <bitrate sixtyfourbit="false" thirtytwobit="true">
+                    <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win32.zip</filelocation>
+                    <hash>436da6f96d350f0125ff1463050c3154205ae7dc</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
         </driver>
-        -->
          <driver id="googlechrome">
             <version id="2.38">
                 <bitrate thirtytwobit="true" sixtyfourbit="true">
