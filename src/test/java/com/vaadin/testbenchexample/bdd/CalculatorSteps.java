@@ -2,6 +2,7 @@ package com.vaadin.testbenchexample.bdd;
 
 import static org.junit.Assert.assertEquals;
 
+import com.vaadin.testbenchexample.WebDriverFactory;
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Then;
@@ -24,7 +25,7 @@ public class CalculatorSteps extends TestBenchTestCase {
 
     @BeforeScenario
     public void setUpWebDriver() throws Exception {
-        setDriver(new ChromeDriver());
+        setDriver(WebDriverFactory.getInstance().createDriver());
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
         calculator = $(KeypadElement.class).first();
     }

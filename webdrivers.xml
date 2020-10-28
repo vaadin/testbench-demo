@@ -16,16 +16,35 @@
                 </bitrate>
             </version>
         </driver>
+        -->
+        <!--driver id="edge">
+            <version id="87.0.663.0">
+                <bitrate sixtyfourbit="true" thirtytwobit="false">
+                    <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win64.zip</filelocation>
+                    <hash>2801ab960194f7d975fd387bf01a42d88d19cb53</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+                <bitrate sixtyfourbit="false" thirtytwobit="true">
+                    <filelocation>https://msedgedriver.azureedge.net/87.0.663.0/edgedriver_win32.zip</filelocation>
+                    <hash>436da6f96d350f0125ff1463050c3154205ae7dc</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+            </version>
+        </driver-->
         <driver id="edge">
-            <version id="5.16299">
-                <bitrate sixtyfourbit="true" thirtytwobit="true">
-                    <filelocation>https://download.microsoft.com/download/D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe</filelocation>
-                    <hash>60c4b6d859ee868ba5aa29c1e5bfa892358e3f96</hash>
+            <version id="85.0.564.70">
+                <bitrate sixtyfourbit="true" thirtytwobit="false">
+                    <filelocation>https://msedgedriver.azureedge.net/85.0.564.70/edgedriver_win64.zip</filelocation>
+                    <hash>3bacb0e2a6fc69f3c490ca0a633db953dc723efa</hash>
+                    <hashtype>sha1</hashtype>
+                </bitrate>
+                <bitrate sixtyfourbit="false" thirtytwobit="true">
+                    <filelocation>https://msedgedriver.azureedge.net/85.0.564.70/edgedriver_win32.zip</filelocation>
+                    <hash>4c9d9459c0f08683e6b95859202eb237028951e1</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
         </driver>
-        -->
          <driver id="googlechrome">
             <version id="2.38">
                 <bitrate thirtytwobit="true" sixtyfourbit="true">
@@ -58,22 +77,21 @@
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
-        </driver>
+        </driver-->
         <driver id="marionette">
-            <version id="0.19.1">
+            <version id="0.27.0">
                 <bitrate sixtyfourbit="true">
-                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-win64.zip</filelocation>
-                    <hash>1d6a7ade773f98b3b5a15ace3b6a06b1ad97a8f1</hash>
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win64.zip</filelocation>
+                    <hash>83a825d58c364222a691679e9fed4973cb8f4fd2</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
                 <bitrate thirtytwobit="true">
-                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.19.1/geckodriver-v0.19.1-win32.zip</filelocation>
-                    <hash>74258f5c73a8fce66fbc3ecd622dae890f1e475a</hash>
+                    <filelocation>https://github.com/mozilla/geckodriver/releases/download/v0.27.0/geckodriver-v0.27.0-win32.zip</filelocation>
+                    <hash>b4d5f5d099784371cfe5fc63b4b066be56a193a2</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
         </driver>
-        -->
     </windows>
     <linux>
         <driver id="googlechrome">
