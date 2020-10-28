@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <vaadin.version>14.4.0</vaadin.version>
+        <vaadin.version>14.4.1</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <repositories>
@@ -135,9 +135,9 @@
                 </configuration>
             </plugin>
             <!-- Plugin which automatically downloads needed webdrivers -->
-            <!-- Configured in webdriver.xml. -->
+            <!-- Configured in webdrivers.xml. -->
             <!-- Currently only downloads Chromedriver, remove commented 
-                out parts of webdriver.xml to download other webdrivers -->
+                out parts of webdrivers.xml to download other webdrivers -->
             <plugin>
                 <groupId>com.lazerycode.selenium</groupId>
                 <artifactId>driver-binary-downloader-maven-plugin</artifactId>
@@ -157,4 +157,49 @@
             </plugin>
         </plugins>
     </build>
+
+
+
+    <profiles>
+    <profile>
+        <!-- Production mode is activated using -Pproduction -->
+        <id>production</id>
+        <properties>
+            <vaadin.productionMode>true</vaadin.productionMode>
+        </properties>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.vaadin</groupId>
+                <artifactId>flow-server-production-mode</artifactId>
+            </dependency>
+        </dependencies>
+
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <jvmArguments>-Dvaadin.productionMode</jvmArguments>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.vaadin</groupId>
+                    <artifactId>vaadin-maven-plugin</artifactId>
+                    <version>${vaadin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>prepare-frontend</goal>
+                                <goal>build-frontend</goal>
+                            </goals>
+                            <phase>compile</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+    </profiles>
 </project>
