@@ -6,7 +6,10 @@ import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.BeforeClass;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBenchTestCase;
@@ -24,6 +27,7 @@ public class CalculatorSteps extends TestBenchTestCase {
 
     @BeforeScenario
     public void setUpWebDriver() throws Exception {
+        WebDriverManager.chromedriver().setup();
         setDriver(new ChromeDriver());
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
         calculator = $(KeypadElement.class).first();
