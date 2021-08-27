@@ -79,7 +79,6 @@
             <artifactId>slf4j-simple</artifactId>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
@@ -137,31 +136,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
-        <pluginManagement>
-            <plugins>
-                <!-- Plugin which automatically downloads needed webdrivers -->
-                <!-- Configured in webdriver.xml. -->
-                <!-- Currently only downloads Chromedriver, remove commented
-                    out parts of webdriver.xml to download other webdrivers -->
-                <plugin>
-                    <groupId>com.lazerycode.selenium</groupId>
-                    <artifactId>driver-binary-downloader-maven-plugin</artifactId>
-                    <version>1.0.17</version>
-                    <configuration>
-                        <downloadedZipFileDirectory>${project.basedir}/webdriver/zips</downloadedZipFileDirectory>
-                        <rootStandaloneServerDirectory>${project.basedir}/webdriver</rootStandaloneServerDirectory>
-                        <customRepositoryMap>${project.basedir}/webdrivers.xml</customRepositoryMap>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>selenium</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
