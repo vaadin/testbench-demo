@@ -27,10 +27,10 @@
         </driver>
         -->
         <driver id="googlechrome">
-            <version id="2.38">
+            <version id="100.0.4896.60">
                 <bitrate thirtytwobit="true" sixtyfourbit="true">
-                    <filelocation>http://chromedriver.storage.googleapis.com/2.38/chromedriver_win32.zip</filelocation>
-                    <hash>913f2233ad1de3ef32c597d10688ef2fef2333d5</hash>
+                    <filelocation>http://chromedriver.storage.googleapis.com/100.0.4896.60/chromedriver_win32.zip</filelocation>
+                    <hash>f3db8014494e0fd32ac78d4f1c814c9755198e3b</hash>
                     <hashtype>sha1</hashtype>
                 </bitrate>
             </version>
