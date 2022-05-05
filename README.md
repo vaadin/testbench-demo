@@ -46,7 +46,7 @@ dependencies were added:
 	<dependency>
 		<groupId>com.vaadin</groupId>
 		<artifactId>vaadin-testbench</artifactId>
-		<version>4.1.0</version>
+		<version>5.2.0</version>
 		<scope>test</scope>
 	</dependency>
 	<dependency>
