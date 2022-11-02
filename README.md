@@ -3,11 +3,14 @@
 This project is a collection of samples on how to use Vaadin TestBench.
 If you are looking for more information on TestBench, see https://vaadin.com/docs/v10/testbench/testbench-overview.html
 
-This version is for Vaadin 23.
-For a version for Vaadin 14, see https://github.com/vaadin/testbench-demo/tree/14.0
-For a version for Vaadin 10, see https://github.com/vaadin/testbench-demo/tree/10.0
-For a version for Vaadin Framework 8, see https://github.com/vaadin/testbench-demo/tree/8.0
-For a version for Vaadin Framework 7, see https://github.com/vaadin/testbench-demo/tree/7.7
+| Vaadin version |                                                    |
+|---------------:|----------------------------------------------------|
+|             24 | Current version (JUnit5 support)                   |
+|             23 | https://github.com/vaadin/testbench-demo/tree/23.0 |
+|             14 | https://github.com/vaadin/testbench-demo/tree/14.0 |
+|             10 | https://github.com/vaadin/testbench-demo/tree/10.0 |
+|              8 | https://github.com/vaadin/testbench-demo/tree/8.0  |
+|              7 | https://github.com/vaadin/testbench-demo/tree/7.7  |
 
 ## Running the Example
 
