@@ -24,6 +24,7 @@ public abstract class AbstractIT extends TestBenchTestCase {
     public void setUp() throws Exception {
         setDriver(new ChromeDriver());
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
+        getCommandExecutor().waitForVaadin();
     }
 
     @BeforeClass

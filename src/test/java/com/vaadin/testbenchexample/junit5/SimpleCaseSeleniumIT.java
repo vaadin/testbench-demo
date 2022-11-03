@@ -1,7 +1,6 @@
 package com.vaadin.testbenchexample.junit5;
 
 import io.github.bonigarcia.seljup.SeleniumJupiter;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBench;
 
 /**
- * This example shows how to use SeleniumJuniper together with TestBench 9.
+ * This example shows how to use SeleniumJupiter together with TestBench.
  * Developer should remember to wrap driver for enabling TestBench features.
  */
 @ExtendWith(SeleniumJupiter.class)
@@ -27,7 +26,7 @@ public class SimpleCaseSeleniumIT implements HasElementQuery {
 
     @BeforeEach
     public void beforeEach(ChromeDriver driver) { // driver injection by Selenium
-        this.driver = TestBench.createDriver(driver);
+        this.driver = TestBench.createDriver(driver); // TestBench driver proxy
         this.driver.get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }
 
@@ -39,11 +38,6 @@ public class SimpleCaseSeleniumIT implements HasElementQuery {
         $(ButtonElement.class).id("button_=").click();
         Assertions.assertEquals("3.0",
                 $(TextFieldElement.class).first().getValue());
-    }
-
-    @AfterEach
-    public void closeDriver() {
-        driver.close();
     }
 
     @Override

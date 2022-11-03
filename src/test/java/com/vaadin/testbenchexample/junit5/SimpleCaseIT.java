@@ -1,6 +1,5 @@
 package com.vaadin.testbenchexample.junit5;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.SearchContext;
@@ -23,7 +22,7 @@ import com.vaadin.testbenchexample.pageobjectexample.CalcViewIT;
  * {@link CalcViewIT#calculateOnePlusTwo()}
  * </p>
  * <p>
- * This example does not extend any TestBench class.
+ * This example does not extend any TestBench class!
  * </p>
  */
 @RunLocally(Browser.CHROME)
@@ -45,11 +44,6 @@ public class SimpleCaseIT implements HasElementQuery { // not extending any Test
         $(ButtonElement.class).id("button_=").click();
         Assertions.assertEquals("3.0",
                 $(TextFieldElement.class).first().getValue());
-    }
-
-    @AfterEach
-    public void afterEach() {
-        driver.close();
     }
 
     @Override

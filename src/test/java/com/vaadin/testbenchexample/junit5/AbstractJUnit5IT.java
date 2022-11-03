@@ -29,8 +29,8 @@ public abstract class AbstractJUnit5IT extends BrowserTestBase implements Driver
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }
 
-    // some simple test just to check if component is present
-    protected void calculate(String a, String op, String b, String result) {
+    // IT test for demo purposes
+    protected void calculate_resultEquals(String a, String op, String b, String result) {
         $(ButtonElement.class).id("button_" + a).click();
         $(ButtonElement.class).id("button_" + op).click();
         $(ButtonElement.class).id("button_" + b).click();
