@@ -1,41 +1,26 @@
 package com.vaadin.testbenchexample.bdd;
 
-import static org.junit.Assert.assertEquals;
-
-import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.junit.BeforeClass;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
-import com.vaadin.testbench.IPAddress;
-import com.vaadin.testbench.TestBenchTestCase;
 import com.vaadin.testbenchexample.pageobjectexample.pageobjects.KeypadElement;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * This class maps steps in the calculator story files to TestBench operations
  * using the page objects from the page object example.
- *
- * See http://jbehave.org for details.
+ * <p>
+ * See <a href="http://jbehave.org">JBehave</a> for details.
  */
-public class CalculatorSteps extends TestBenchTestCase {
+public class CalculatorSteps extends ChromeSteps {
 
     private KeypadElement calculator;
 
     @BeforeScenario
-    public void setUpWebDriver() throws Exception {
-        WebDriverManager.chromedriver().setup();
-        setDriver(new ChromeDriver());
-        getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
+    public void setElements() {
         calculator = $(KeypadElement.class).first();
-    }
-
-    @AfterScenario
-    public void tearDownWebDriver() {
-        getDriver().quit();
     }
 
     @When("I push $buttons")
