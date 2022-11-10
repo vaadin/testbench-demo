@@ -3,17 +3,15 @@ package com.vaadin.testbenchexample.bdd;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
 import org.jbehave.core.io.LoadFromClasspath;
-import org.jbehave.core.junit.JUnitStory;
 import org.jbehave.core.reporters.Format;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InjectableStepsFactory;
-import org.jbehave.core.steps.InstanceStepsFactory;
 
 /**
- * This class runs the scenarios listed in the simple_calculation.story story
- * file using JUnit. See http://jbehave.org for details.
+ * This class runs the scenarios listed in the simple_b_d_d_calculation_i_t.story
+ * file using TestBench JUnit 5. See <a href="http://jbehave.org">JBehave</a> for details.
  */
-public class SimpleBDDCalculationIT extends JUnitStory {
+public class SimpleBDDCalculationIT extends ChromeStory {
 
     @Override
     public Configuration configuration() {
@@ -26,6 +24,6 @@ public class SimpleBDDCalculationIT extends JUnitStory {
 
     @Override
     public InjectableStepsFactory stepsFactory() {
-        return new InstanceStepsFactory(configuration(), new CalculatorSteps());
+        return new InstanceChromeStepsFactory(configuration(), new CalculatorSteps());
     }
 }

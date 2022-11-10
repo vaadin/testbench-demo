@@ -1,13 +1,16 @@
 # TestBench Demo
 
 This project is a collection of samples on how to use Vaadin TestBench.
-If you are looking for more information on TestBench, see https://vaadin.com/docs/v10/testbench/testbench-overview.html
+If you are looking for more information on TestBench, see https://vaadin.com/testbench
 
-This version is for Vaadin 23.
-For a version for Vaadin 14, see https://github.com/vaadin/testbench-demo/tree/14.0
-For a version for Vaadin 10, see https://github.com/vaadin/testbench-demo/tree/10.0
-For a version for Vaadin Framework 8, see https://github.com/vaadin/testbench-demo/tree/8.0
-For a version for Vaadin Framework 7, see https://github.com/vaadin/testbench-demo/tree/7.7
+|         Vaadin | TestBench demo                                     |
+|---------------:|----------------------------------------------------|
+|             24 | Current version                                    |
+|             23 | https://github.com/vaadin/testbench-demo/tree/23.0 |
+|             14 | https://github.com/vaadin/testbench-demo/tree/14.0 |
+|             10 | https://github.com/vaadin/testbench-demo/tree/10.0 |
+|              8 | https://github.com/vaadin/testbench-demo/tree/8.0  |
+|              7 | https://github.com/vaadin/testbench-demo/tree/7.7  |
 
 ## Running the Example
 
@@ -39,4 +42,10 @@ The TestBench tests for the application are located under the
 
 ### Screenshot comparison in the example project
 
-The screenshot comparison example in `src/test/java/com/vaadin/testbenchexample/advanced/ScreenshotIT.java` grabs a screenshot and compares it to a reference file in `src/test/screenshots`. The first time it is run, it will automatically generate a reference screenshot in that folder, e.g. `src/test/screenshots/oneplustwo_mac_chrome_64.png` (exact file name depends on your operating system and browser). Normally the reference file generation would be handled by hand so you can verify that the screenshots look correct at the same time.
+The screenshot comparison example in `src/test/java/com/vaadin/testbenchexample/advanced/ScreenshotIT.java` grabs a screenshot and compares it to a reference file in `src/test/screenshots`. The first time it is run, it will automatically generate a reference screenshot in that folder, e.g. `src/test/screenshots/oneplustwo_mac_chrome_107.png` (exact file name depends on your operating system and browser). Normally the reference file generation would be handled by hand so you can verify that the screenshots look correct at the same time.
+
+### JUnit5 support
+JUnit5 is supported since TestBench 9, examples can be found at `src/test/java/com/vaadin/testbenchexample/junit5`.
+
+### TestBench together with Selenium-Jupiter
+It is possible to use TestBench together with <a href="https://bonigarcia.dev/selenium-jupiter/">Selenium-Jupiter JUnit5 extension</a>, see example test at `src/test/java/com/vaadin/testbenchexample/junit5/SimpleCaseSeleniumIT`.
