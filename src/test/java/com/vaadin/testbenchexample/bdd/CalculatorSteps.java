@@ -3,10 +3,9 @@ package com.vaadin.testbenchexample.bdd;
 import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
+import org.junit.jupiter.api.Assertions;
 
 import com.vaadin.testbenchexample.pageobjectexample.pageobjects.KeypadElement;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * This class maps steps in the calculator story files to TestBench operations
@@ -30,6 +29,6 @@ public class CalculatorSteps extends ChromeSteps {
 
     @Then("the display should show $result")
     public void displayShows(String result) {
-        assertEquals(result, calculator.getDisplayValue());
+        Assertions.assertEquals(result, calculator.getDisplayValue());
     }
 }

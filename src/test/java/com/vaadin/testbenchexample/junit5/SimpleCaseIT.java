@@ -11,6 +11,7 @@ import com.vaadin.testbench.BrowserTest;
 import com.vaadin.testbench.HasElementQuery;
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.annotations.RunLocally;
+import com.vaadin.testbench.browser.BrowserTestInfo;
 import com.vaadin.testbench.parallel.Browser;
 import com.vaadin.testbenchexample.pageobjectexample.CalcViewIT;
 
@@ -31,8 +32,8 @@ public class SimpleCaseIT implements HasElementQuery { // not extending any Test
     private WebDriver driver;
 
     @BeforeEach
-    public void beforeEach(WebDriver driver) { // driver injection
-        this.driver = driver;
+    public void beforeEach(BrowserTestInfo browserTestInfo) { // driver injection
+        this.driver = browserTestInfo.driver();
         this.driver.get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }
 
