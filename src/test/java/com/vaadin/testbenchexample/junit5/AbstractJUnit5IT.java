@@ -1,6 +1,5 @@
 package com.vaadin.testbenchexample.junit5;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -37,11 +36,6 @@ public abstract class AbstractJUnit5IT extends BrowserTestBase implements Driver
         $(ButtonElement.class).id("button_=").click();
         Assertions.assertEquals(result,
                 $(TextFieldElement.class).first().getValue());
-    }
-
-    @BeforeAll
-    public static void setupClass() {
-        WebDriverManager.chromedriver().setup();
     }
 
 }
