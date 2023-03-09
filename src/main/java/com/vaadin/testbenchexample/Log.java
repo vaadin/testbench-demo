@@ -45,7 +45,7 @@ public class Log extends VerticalLayout {
 
     public void log(String row) {
         messages.add(new Paragraph(row));
-        getUI().get().getPage().executeJavaScript("$0.scrollTop=129341",
+        getUI().get().getPage().executeJs("$0.scrollTop=129341",
                 messages);
     }
 
