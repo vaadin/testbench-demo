@@ -5,9 +5,18 @@ on:
   pull_request:
 permissions:
   contents: read
+defaults:
+  run:
+    shell: bash  
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true  
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu, windows]
+    runs-on: ${{ matrix.os }}-latest
     permissions:
       # for EnricoMi/publish-unit-test-result-action
       issues: read
@@ -41,8 +50,8 @@ jobs:
         run: |
           mvn -B -V -ntp verify -Dcom.vaadin.testbench.Parameters.headless
       - name: Publish Test Results
-        uses: EnricoMi/publish-unit-test-result-action@v1
+        if: matrix.os == 'ubuntu'
+        uses: EnricoMi/publish-unit-test-result-action@v2
         with:
           files: "**/target/*-reports/TEST*.xml"
           check_run_annotations: all tests, skipped tests
-          check_run_annotations_branch: v24
