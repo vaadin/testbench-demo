@@ -5,12 +5,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.vaadin.flow.component.button.testbench.ButtonElement;
 import com.vaadin.flow.component.textfield.testbench.TextFieldElement;
 import com.vaadin.testbench.BrowserTestBase;
 import com.vaadin.testbench.DriverSupplier;
 import com.vaadin.testbench.IPAddress;
+import com.vaadin.testbench.TestBench;
 
 /**
  * Base class for all our JUnit5 tests, allowing us to change the applicable driver,
@@ -20,7 +22,11 @@ public abstract class AbstractJUnit5IT extends BrowserTestBase implements Driver
 
     @Override
     public WebDriver createDriver() {
-        return new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        if (Boolean.getBoolean("com.vaadin.testbench.Parameters.headless")) {
+            options.addArguments("--headless");
+        }
+        return TestBench.createDriver(new ChromeDriver(options));
     }
 
     @BeforeEach
