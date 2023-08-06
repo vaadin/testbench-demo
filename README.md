@@ -32,6 +32,14 @@ one is probably Maven and the jetty-maven-plugin:
 
 	mvn jetty:run
 
+You can also verify the project in production mode by running:
+
+  mvn verify -Pproduction
+
+Or deploy the deploy the application in production executing:
+
+  mvn jetty:run-war -Pproduction
+
 ### Sample code classes explained
 
 The source code for the application to be tested, a desktop calculator
