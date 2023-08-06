@@ -1,4 +1,6 @@
 /target/
+frontend/
+src/test/screenshots/
 .idea/
 .settings
 .project
