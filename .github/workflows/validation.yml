@@ -45,7 +45,6 @@ jobs:
       - uses: browser-actions/setup-chrome@latest
         with:
           chrome-version: stable
-      - uses: nanasess/setup-chromedriver@master
       - name: Verify
         run: |
           mvn -B -V -ntp verify -Dcom.vaadin.testbench.Parameters.headless
