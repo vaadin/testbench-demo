@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample.junit5;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,6 +33,11 @@ public abstract class AbstractJUnit5IT extends BrowserTestBase implements Driver
     @BeforeEach
     public void setUp() {
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
+    }
+
+    @AfterEach
+    public void afterEach() {
+        getDriver().close();
     }
 
     // IT test for demo purposes
