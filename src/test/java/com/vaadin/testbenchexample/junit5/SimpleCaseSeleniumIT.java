@@ -28,7 +28,7 @@ public class SimpleCaseSeleniumIT implements HasElementQuery {
 
     @BeforeEach
 
-    public void beforeEach(@Arguments("--headless") ChromeDriver driver) { // driver injection by Selenium
+    public void beforeEach(@Arguments("--headless=new") ChromeDriver driver) { // driver injection by Selenium
         this.driver = TestBench.createDriver(driver); // TestBench driver proxy
         this.driver.get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }

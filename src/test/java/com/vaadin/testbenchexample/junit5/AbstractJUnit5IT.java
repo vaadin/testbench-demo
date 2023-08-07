@@ -24,7 +24,7 @@ public abstract class AbstractJUnit5IT extends BrowserTestBase implements Driver
     public WebDriver createDriver() {
         ChromeOptions options = new ChromeOptions();
         if (Boolean.getBoolean("com.vaadin.testbench.Parameters.headless")) {
-            options.addArguments("--headless");
+            options.addArguments("--headless=new");
         }
         return TestBench.createDriver(new ChromeDriver(options));
     }

@@ -24,7 +24,7 @@ public abstract class AbstractIT extends TestBenchTestCase {
     public void setUp() throws Exception {
         ChromeOptions options = new ChromeOptions();
         if (Boolean.getBoolean("com.vaadin.testbench.Parameters.headless")) {
-            options.addArguments("--headless");
+            options.addArguments("--headless=new");
         }
         setDriver(TestBench.createDriver(new ChromeDriver(options)));
         getDriver().get("http://" + IPAddress.findSiteLocalAddress() + ":8080");

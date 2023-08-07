@@ -36,7 +36,7 @@ You can also verify the project in production mode by running:
 
   mvn verify -Pproduction
 
-Or deploy the deploy the application in production executing:
+Or deploy the application in production executing:
 
   mvn jetty:run-war -Pproduction
 
