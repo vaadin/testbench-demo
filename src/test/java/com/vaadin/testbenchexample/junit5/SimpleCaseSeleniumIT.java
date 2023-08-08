@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample.junit5;
 
+import io.github.bonigarcia.seljup.Arguments;
 import io.github.bonigarcia.seljup.SeleniumJupiter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ import com.vaadin.testbench.HasElementQuery;
 import com.vaadin.testbench.IPAddress;
 import com.vaadin.testbench.TestBench;
 
+
 /**
  * This example shows how to use SeleniumJupiter together with TestBench.
  * Developer should remember to wrap driver for enabling TestBench features.
@@ -25,7 +27,8 @@ public class SimpleCaseSeleniumIT implements HasElementQuery {
     private WebDriver driver;
 
     @BeforeEach
-    public void beforeEach(ChromeDriver driver) { // driver injection by Selenium
+
+    public void beforeEach(@Arguments("--headless=new") ChromeDriver driver) { // driver injection by Selenium
         this.driver = TestBench.createDriver(driver); // TestBench driver proxy
         this.driver.get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
     }

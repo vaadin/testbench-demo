@@ -1,5 +1,6 @@
 package com.vaadin.testbenchexample.junit5;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.SearchContext;
@@ -35,6 +36,11 @@ public class SimpleCaseIT implements HasElementQuery { // not extending any Test
     public void beforeEach(BrowserTestInfo browserTestInfo) { // driver injection
         this.driver = browserTestInfo.driver();
         this.driver.get("http://" + IPAddress.findSiteLocalAddress() + ":8080");
+    }
+
+    @AfterEach
+    public void afterEach() {
+        this.driver.close();
     }
 
     @BrowserTest // test with TestBench 9 annotation

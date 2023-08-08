@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <vaadin.version>24.0.0</vaadin.version>
+        <vaadin.version>24.1.4</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
     <repositories>
@@ -102,8 +102,8 @@
                 <version>3.3.1</version>
             </plugin>
             <plugin>
-                <!-- A simple Jetty test server at http://localhost:8080/ 
-                    Can be launched with the Maven goal jetty:run. Automatically run during the 
+                <!-- A simple Jetty test server at http://localhost:8080/
+                    Can be launched with the Maven goal jetty:run. Automatically run during the
                     integration-test phase -->
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -156,6 +156,39 @@
                     <rerunFailingTestsCount>3</rerunFailingTestsCount>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-maven-plugin</artifactId>
+                <version>${vaadin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-frontend</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>production</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.vaadin</groupId>
+                        <artifactId>vaadin-maven-plugin</artifactId>
+                        <version>${vaadin.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>build-frontend</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

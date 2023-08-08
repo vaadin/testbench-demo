@@ -44,7 +44,13 @@ public class ScreenshotIT extends AbstractIT {
         // The output is placed in target/screenshot_errors
         calcView.calculate("1+2");
 
-        generateReferenceIfNotFound("oneplustwo");
+        String referenceId = "oneplustwo";
+        if (Boolean.TRUE.equals(getCommandExecutor().executeScript("return Vaadin.developmentMode;"))) {
+            referenceId += "-development";
+        } else {
+            referenceId += "-production";
+        }
+        generateReferenceIfNotFound(referenceId);
 
         // Compare screen with reference image with id "oneplustwo" from the
         // reference image directory. Reference image filenames also contain
@@ -53,7 +59,7 @@ public class ScreenshotIT extends AbstractIT {
                 "Screenshot comparison for 'oneplustwo' failed, see "
                         + Parameters.getScreenshotErrorDirectory()
                         + " for error images",
-                testBench().compareScreen("oneplustwo"));
+                testBench().compareScreen(referenceId));
     }
 
     /**
