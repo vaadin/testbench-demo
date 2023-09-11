@@ -4,11 +4,11 @@ This project is a collection of samples on how to use Vaadin TestBench.
 If you are looking for more information on TestBench, see https://vaadin.com/testbench
 
 |         Vaadin | TestBench demo                                     |
-|---------------:|----------------------------------------------------|
+|----------------|----------------------------------------------------|
 |             24 | Current version                                    |
-|             23 | https://github.com/vaadin/testbench-demo/tree/23.0 |
-|             14 | https://github.com/vaadin/testbench-demo/tree/14.0 |
-|             10 | https://github.com/vaadin/testbench-demo/tree/10.0 |
+|             23 | https://github.com/vaadin/testbench-demo/tree/v23 |
+|             14 | https://github.com/vaadin/testbench-demo/tree/v14 |
+|             10 | https://github.com/vaadin/testbench-demo/tree/v10 |
 |              8 | https://github.com/vaadin/testbench-demo/tree/8.0  |
 |              7 | https://github.com/vaadin/testbench-demo/tree/7.7  |
 

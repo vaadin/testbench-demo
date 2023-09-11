@@ -1,7 +1,7 @@
 name: Verify
 on:
   push:
-    branches: [master]
+    branches: [v24]
   pull_request:
 permissions:
   contents: read
