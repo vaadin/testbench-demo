@@ -105,9 +105,9 @@
                 <!-- A simple Jetty test server at http://localhost:8080/
                     Can be launched with the Maven goal jetty:run. Automatically run during the
                     integration-test phase -->
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>11.0.12</version>
+                <groupId>org.eclipse.jetty.ee10</groupId>
+                <artifactId>jetty-ee10-maven-plugin</artifactId>
+                <version>12.0.15</version>
                 <configuration>
                     <stopPort>9966</stopPort>
                     <stopKey>testbench-demo</stopKey>
