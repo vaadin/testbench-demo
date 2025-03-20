@@ -50,6 +50,6 @@ public class PerformanceIT extends AbstractIT {
         }
 
         assertEquals("3.0",
-                $(TextFieldElement.class).first().getAttribute("value"));
+                $(TextFieldElement.class).first().getDomProperty("value"));
     }
 }
