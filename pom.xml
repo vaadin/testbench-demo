@@ -20,6 +20,7 @@
         <vaadin.version>25.0.0-alpha14</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
+
     <repositories>
         <repository>
             <id>vaadin-addons</id>
@@ -43,6 +44,13 @@
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
                 <version>${vaadin.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.13.1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -97,7 +105,7 @@
         <dependency>
             <groupId>org.jbehave</groupId>
             <artifactId>jbehave-core</artifactId>
-            <version>5.1.1</version>
+            <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -108,7 +116,7 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>selenium-jupiter</artifactId>
-            <version>5.1.0</version>
+            <version>6.3.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
