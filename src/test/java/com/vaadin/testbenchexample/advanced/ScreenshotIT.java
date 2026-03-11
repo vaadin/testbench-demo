@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.junit.Test;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.HasCapabilities;
 
 import com.vaadin.testbench.Parameters;
@@ -29,7 +30,7 @@ public class ScreenshotIT extends AbstractIT {
 
         // Set a fixed viewport size so the screenshot is always the same
         // resolution
-        testBench().resizeViewPortTo(500, 400);
+        getDriver().manage().window().setSize(new Dimension(500, 400));
 
         // Define the directory for reference screenshots and for error files
         Parameters.setScreenshotReferenceDirectory("src/test/screenshots");
