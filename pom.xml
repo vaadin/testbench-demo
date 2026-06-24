@@ -17,7 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <vaadin.version>25.1.8</vaadin.version>
+        <vaadin.version>25.2.0</vaadin.version>
         <failOnMissingWebXml>false</failOnMissingWebXml>
     </properties>
 
@@ -40,17 +40,23 @@
 
     <dependencyManagement>
         <dependencies>
+            <!-- JUnit 6. vaadin-bom only manages the JUnit artifacts Vaadin/
+                 TestBench depend on (jupiter-api, jupiter); it does NOT manage the
+                 test-runtime artifacts this project adds directly (jupiter-engine,
+                 platform-launcher, vintage-engine). Importing junit-bom pins the
+                 whole junit-* graph to one coherent version. Keep it at the version
+                 Vaadin's managed jupiter-api resolves to (6.0.3 for Vaadin 25.2.0). -->
             <dependency>
-                <groupId>com.vaadin</groupId>
-                <artifactId>vaadin-bom</artifactId>
-                <version>${vaadin.version}</version>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>6.0.3</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.junit</groupId>
-                <artifactId>junit-bom</artifactId>
-                <version>5.14.0</version>
+                <groupId>com.vaadin</groupId>
+                <artifactId>vaadin-bom</artifactId>
+                <version>${vaadin.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -75,7 +81,7 @@
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench-core-junit5</artifactId>
+            <artifactId>vaadin-testbench-core-junit6</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -87,19 +93,16 @@
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
-            <version>5.14.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.14.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
-            <version>1.14.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -166,7 +169,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.5.6</version>
                 <executions>
                     <execution>
                         <goals>
@@ -183,7 +186,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.5.6</version>
                 <configuration>
                     <rerunFailingTestsCount>3</rerunFailingTestsCount>
                 </configuration>
